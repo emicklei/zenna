@@ -7,6 +7,7 @@ type Visitor2D interface {
 	VisitShapeComposite(s ShapeComposite)
 	VisitPolygon(p Polygon)
 	VisitStyleWith(s StyleWith)
+	VisitLineSegment(l LineSegment)
 }
 
 type Geometric2D interface {

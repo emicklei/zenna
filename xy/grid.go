@@ -2,8 +2,8 @@ package xy
 
 type Grid struct {
 	Center Point
-	Width  int
-	Height int
+	Width  float64
+	Height float64
 	Dx     float64
 	Dy     float64
 	Style  string

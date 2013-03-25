@@ -13,7 +13,7 @@ type Painter struct {
 }
 
 func NewSVGPainter(style string, canvas *svg.SVG) Painter {
-	return Painter{style,canvas}
+	return Painter{style, canvas}
 }
 
 func (p *Painter) Style(newStyle string) {
@@ -53,6 +53,10 @@ func (p Painter) VisitStyleWith(s StyleWith) {
 	(&p).style = s.Style
 	s.Shape.Accept(p)
 	(&p).style = old // use defer?
+}
+
+func (p Painter) VisitLineSegment(l LineSegment) {
+	new(SVGF).Line(l.Begin.X, l.Begin.Y, l.End.X, l.End.Y, p.style)
 }
 
 // Code below exists until SVG package has support for Float64 numbers
