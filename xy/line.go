@@ -5,6 +5,6 @@ type LineSegment struct {
 	End   Point
 }
 
-func (l LineSegment) Accept(visitor Visitor2D) {
+func (l LineSegment) Accept(visitor Visitor) {
 	visitor.VisitLineSegment(l)
 }

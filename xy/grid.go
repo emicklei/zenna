@@ -6,7 +6,6 @@ type Grid struct {
 	Height float64
 	Dx     float64
 	Dy     float64
-	Style  string
 }
 
 // func (g Grid) DrawOn(canvas *svg.SVG) {

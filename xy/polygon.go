@@ -4,6 +4,6 @@ type Polygon struct {
 	Points []Point
 }
 
-func (p Polygon) Accept(visitor Visitor2D) {
+func (p Polygon) Accept(visitor Visitor) {
 	visitor.VisitPolygon(p)
 }

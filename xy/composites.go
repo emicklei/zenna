@@ -1,12 +1,12 @@
 package xy
 
-type ShapeComposite struct {
-	Shapes []Geometric2D
+type Composite struct {
+	Shapes []Geometric
 }
 
-func (s ShapeComposite) Accept(visitor Visitor2D) {
-	visitor.VisitShapeComposite(s)
+func (s Composite) Accept(visitor Visitor) {
+	visitor.VisitComposite(s)
 }
-func (s *ShapeComposite) Add(shape Geometric2D) {
+func (s *Composite) Add(shape Geometric) {
 	s.Shapes = append(s.Shapes, shape)
 }

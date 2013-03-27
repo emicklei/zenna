@@ -1,51 +1,37 @@
 package xy
 
-type Visitor2D interface {
-	VisitTranslateBy(t TranslateBy)
-	VisitScaleBy(s ScaleBy)
-	VisitRotateBy(r RotateBy)
-	VisitShapeComposite(s ShapeComposite)
-	VisitPolygon(p Polygon)
-	VisitStyleWith(s StyleWith)
-	VisitLineSegment(l LineSegment)
-}
-
-type Geometric2D interface {
-	Accept(visitor Visitor2D)
-}
-
 type TranslateBy struct {
-	Shape       Geometric2D
+	Shape       Geometric
 	Translation Point
 }
 
-func (t TranslateBy) Accept(visitor Visitor2D) {
+func (t TranslateBy) Accept(visitor Visitor) {
 	visitor.VisitTranslateBy(t)
 }
 
 type ScaleBy struct {
-	Shape Geometric2D
+	Shape Geometric
 	Scale float64
 }
 
-func (s ScaleBy) Accept(visitor Visitor2D) {
+func (s ScaleBy) Accept(visitor Visitor) {
 	visitor.VisitScaleBy(s)
 }
 
 type RotateBy struct {
-	Shape Geometric2D
+	Shape Geometric
 	Angle float64
 }
 
-func (r RotateBy) Accept(visitor Visitor2D) {
+func (r RotateBy) Accept(visitor Visitor) {
 	visitor.VisitRotateBy(r)
 }
 
 type StyleWith struct {
-	Shape Geometric2D
+	Shape Geometric
 	Style string
 }
 
-func (s StyleWith) Accept(visitor Visitor2D) {
+func (s StyleWith) Accept(visitor Visitor) {
 	visitor.VisitStyleWith(s)
 }

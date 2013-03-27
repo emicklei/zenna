@@ -35,7 +35,7 @@ func (p Painter) VisitRotateBy(r RotateBy) {
 	r.Shape.Accept(p)
 	p.canvas.Gend()
 }
-func (p Painter) VisitShapeComposite(s ShapeComposite) {
+func (p Painter) VisitComposite(s Composite) {
 	for _, each := range s.Shapes {
 		each.Accept(p)
 	}
