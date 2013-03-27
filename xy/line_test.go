@@ -7,5 +7,5 @@ func ExampleLineSegment() {
 	// Point{0.0,0.0}.LineSegmentTo(Point{25.0, 50.0})
 	fmt.Println(l)
 	// Output:
-	// {{0 0} {25 50}}
+	// {P(0,0) P(25,50)}
 }

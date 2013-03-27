@@ -8,6 +8,7 @@ type Visitor interface {
 	VisitPolygon(p Polygon)
 	VisitStyleWith(s StyleWith)
 	VisitLineSegment(l LineSegment)
+	VisitCircle(c Circle)
 }
 
 type Geometric interface {

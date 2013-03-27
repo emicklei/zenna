@@ -1,2 +1,2 @@
-go fmt ...xy && go install ...xy
-go fmt ...svgf && go install ...svgf
+go fmt ...xy && go test -v ...xy && go install ...xy
+go fmt ...svgf && go test -v ...svgf && go install ...svgf

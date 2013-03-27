@@ -1,9 +1,17 @@
 package xy
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Point struct {
 	X, Y float64
+}
+
+// P is a convenient Point constructor
+func P(x, y float64) Point {
+	return Point{x, y}
 }
 
 func (p Point) Plus(d Point) Point {
@@ -38,4 +46,8 @@ func FloatSlices(points []Point) (x, y []float64) {
 		y = append(y, each.Y)
 	}
 	return x, y
+}
+
+func (p Point) String() string {
+	return fmt.Sprintf("P(%v,%v)", p.X, p.Y)
 }

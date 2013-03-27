@@ -20,6 +20,10 @@ func (p *Painter) Style(newStyle string) {
 	p.style = newStyle
 }
 
+func (p Painter) VisitCircle(c Circle) {
+	new(SVGF).Circle(c.Center.X, c.Center.Y, c.Radius, p.style)
+}
+
 func (p Painter) VisitTranslateBy(t TranslateBy) {
 	p.canvas.Gtransform(fmt.Sprintf(`translate(%f,%f)`, t.Translation.X, t.Translation.Y))
 	t.Shape.Accept(p)
@@ -63,6 +67,12 @@ func (p Painter) VisitLineSegment(l LineSegment) {
 
 type SVGF struct {
 	*svg.SVG
+}
+
+// Circle centered at x,y, with radius r, with optional style.
+// Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#CircleElement
+func (svgf *SVGF) Circle(x float64, y float64, r float64, s ...string) {
+	fmt.Fprintf(svgf.Writer, `<circle cx="%f" cy="%f" r="%f" %s`, x, y, r, endstyle(s, emptyclose))
 }
 
 // Line draws a straight line between two points, with optional style.
