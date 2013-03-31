@@ -16,12 +16,16 @@ func NewSVGPainter(style string, canvas *svg.SVG) Painter {
 	return Painter{style, canvas}
 }
 
+func (p Painter) Paint(g Geometric) {
+	g.Accept(p)
+}
+
 func (p *Painter) Style(newStyle string) {
 	p.style = newStyle
 }
 
 func (p Painter) VisitCircle(c Circle) {
-	new(SVGF).Circle(c.Center.X, c.Center.Y, c.Radius, p.style)
+	(&SVGF{p.canvas}).Circle(c.Center.X, c.Center.Y, c.Radius, p.style)
 }
 
 func (p Painter) VisitTranslateBy(t TranslateBy) {
@@ -60,7 +64,7 @@ func (p Painter) VisitStyleWith(s StyleWith) {
 }
 
 func (p Painter) VisitLineSegment(l LineSegment) {
-	new(SVGF).Line(l.Begin.X, l.Begin.Y, l.End.X, l.End.Y, p.style)
+	(&SVGF{p.canvas}).Line(l.Begin.X, l.Begin.Y, l.End.X, l.End.Y, p.style)
 }
 
 // Code below exists until SVG package has support for Float64 numbers

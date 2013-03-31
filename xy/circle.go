@@ -7,8 +7,8 @@ type Circle struct {
 	Radius, StartAngle, SweepAngle float64
 }
 
-// Circle_ is a convenient Circle constructor
-func Circle_(center Point) {
+// Circ is a convenient Circle constructor
+func Circ(center Point) {
 
 }
 
@@ -21,5 +21,5 @@ func (c Circle) Accept(visitor Visitor) {
 }
 
 func (c Circle) String() string {
-	return fmt.Sprintf("Circle_(%v,%v)", c.Center, c.Radius)
+	return fmt.Sprintf("Circ( %v, %v )", c.Center, c.Radius)
 }
