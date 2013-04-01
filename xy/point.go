@@ -9,6 +9,8 @@ type Point struct {
 	X, Y float64
 }
 
+var PointZero = P(0, 0)
+
 // P is a convenient Point constructor
 func P(x, y float64) Point {
 	return Point{x, y}

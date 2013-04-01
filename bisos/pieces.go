@@ -4,14 +4,13 @@ import (
 	. "github.com/emicklei/zenna/xy"
 )
 
-var BisosDelta = Point{1, -Tan60}.Multiply(float64(100))
+var BisosDelta = Point{1, Tan60}.Multiply(float64(100))
 
 type Bisos struct {
-	Style  string
 	points []Point
 }
 
-func NewBisos(style string, id byte) Bisos {
+func NewBisos(id byte) Bisos {
 	p := NewPen(Point{}, BisosDelta)
 	switch id {
 	case 1:
@@ -33,7 +32,7 @@ func NewBisos(style string, id byte) Bisos {
 	case 9:
 		bisos_9(&p)
 	}
-	return Bisos{style, p.Path()}
+	return Bisos{p.Path()}
 }
 
 func bisos_1(p *Pen) {
@@ -122,6 +121,5 @@ func (b *Bisos) Mirrored(axis Axis) {
 }
 
 func (b Bisos) Accept(visitor Visitor) {
-	s := StyleWith{Polygon{b.points}, b.Style}
-	s.Accept(visitor)
+	Polygon{b.points}.Accept(visitor)
 }

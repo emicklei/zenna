@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// Painter is a Geometric Visitor that renders SVG documents
+// It translates the Zenna coordinate system (Y=up) to that of SVG (Y=down)
 type Painter struct {
 	style  string // current style
 	canvas *svg.SVG
@@ -29,7 +31,7 @@ func (p Painter) VisitCircle(c Circle) {
 }
 
 func (p Painter) VisitTranslateBy(t TranslateBy) {
-	p.canvas.Gtransform(fmt.Sprintf(`translate(%f,%f)`, t.Translation.X, t.Translation.Y))
+	p.canvas.Gtransform(fmt.Sprintf(`translate(%f,%f)`, t.Translation.X, -t.Translation.Y))
 	t.Shape.Accept(p)
 	p.canvas.Gend()
 }
@@ -49,10 +51,9 @@ func (p Painter) VisitComposite(s Composite) {
 	}
 }
 func (p Painter) VisitPolygon(poly Polygon) {
-	// Hack: write directly to Stdout
 	fmt.Printf(`<polygon style="%s" points="`, p.style)
 	for _, each := range poly.Points {
-		fmt.Printf("%f,%f ", each.X, each.Y)
+		fmt.Fprintf(p.canvas.Writer, "%v,%v ", each.X, -each.Y)
 	}
 	fmt.Println(`" />`)
 }
@@ -64,7 +65,7 @@ func (p Painter) VisitStyleWith(s StyleWith) {
 }
 
 func (p Painter) VisitLineSegment(l LineSegment) {
-	(&SVGF{p.canvas}).Line(l.Begin.X, l.Begin.Y, l.End.X, l.End.Y, p.style)
+	(&SVGF{p.canvas}).Line(l.Begin.X, -l.Begin.Y, l.End.X, -l.End.Y, p.style)
 }
 
 // Code below exists until SVG package has support for Float64 numbers
@@ -76,13 +77,13 @@ type SVGF struct {
 // Circle centered at x,y, with radius r, with optional style.
 // Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#CircleElement
 func (svgf *SVGF) Circle(x float64, y float64, r float64, s ...string) {
-	fmt.Fprintf(svgf.Writer, `<circle cx="%f" cy="%f" r="%f" %s`, x, y, r, endstyle(s, emptyclose))
+	fmt.Fprintf(svgf.Writer, `<circle cx="%v" cy="%v" r="%v" %s`, x, y, r, endstyle(s, emptyclose))
 }
 
 // Line draws a straight line between two points, with optional style.
 // Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#LineElement
 func (svgf *SVGF) Line(x1 float64, y1 float64, x2 float64, y2 float64, s ...string) {
-	fmt.Fprintf(svgf.Writer, `<line x1="%f" y1="%f" x2="%f" y2="%f" %s`, x1, y1, x2, y2, endstyle(s, emptyclose))
+	fmt.Fprintf(svgf.Writer, `<line x1="%v" y1="%v" x2="%v" y2="%v" %s`, x1, y1, x2, y2, endstyle(s, emptyclose))
 }
 
 // Polygon draws a series of line segments using an array of x, y coordinates, with optional style.
@@ -90,7 +91,7 @@ func (svgf *SVGF) Line(x1 float64, y1 float64, x2 float64, y2 float64, s ...stri
 func (svg *SVGF) Polygon(x []float64, y []float64, s ...string) {
 	fmt.Fprintf(svg.Writer, `<polygon style="%s" points="`, s[0])
 	for i := 0; i < len(x); i++ {
-		fmt.Fprintf(svg.Writer, "%f,%f ", x[i], y[i])
+		fmt.Fprintf(svg.Writer, "%v,%v ", x[i], y[i])
 	}
 	fmt.Fprintf(svg.Writer, `" />`)
 }

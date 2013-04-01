@@ -18,13 +18,18 @@ func main() {
 	canvas.Title(os.Args[1])
 	canvas.Translate(400, 300)
 
-	vis := NewSVGPainter("", canvas)
+	painter := NewSVGPainter("", canvas)
 
+	// grid
+//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, BisosDelta.X/2, BisosDelta.Y/2}, "stroke-width:1px;stroke:gray"})
+	// x-y
+//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, 0 , 0 }, "stroke-width:1px;stroke:red"})
+	
 	switch os.Args[1] {
 	case "cover":
-		ScaleBy{bisos_cover(), 0.5}.Accept(vis)
+		painter.Paint(StyleWith{ScaleBy{bisos_cover(), 0.5},"stroke:blue;fill:none"})
 	case "1_3":
-		ScaleBy{bisos_1_3(), 0.5}.Accept(vis)
+		painter.Paint(StyleWith{ScaleBy{bisos_1_3(), 0.5},"stroke:red;fill:none"})
 	}
 
 	canvas.Gend()
