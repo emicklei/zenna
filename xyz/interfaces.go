@@ -1,5 +1,5 @@
 package xyz
 
-type Visitor interface {
-	VisitCircle(s Sphere)
+type Visitor3D interface {
+	VisitSphere(s Sphere)
 }

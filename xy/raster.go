@@ -2,7 +2,7 @@ package xy
 
 import "math"
 
-type Grid struct {
+type Raster struct {
 	Center Point
 	Width  float64
 	Height float64
@@ -10,7 +10,7 @@ type Grid struct {
 	Dy     float64 // Dy >=0 , if Dy = 0 then grid contains 1 horizontal line
 }
 
-func (g Grid) Accept(visitor Visitor) {
+func (g Raster) Accept(visitor Visitor) {
 	c := new(Composite)
 	hc := math.Floor(g.Width / g.Dx / 2)
 	vc := math.Floor(g.Height / g.Dy / 2)

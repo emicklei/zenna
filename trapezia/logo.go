@@ -4,8 +4,8 @@ import (
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
-	"os"
 	_ "math"
+	"os"
 )
 
 // http://colorschemedesigner.com/
@@ -18,17 +18,16 @@ func main() {
 	canvas.Scale(100)
 
 	painter := NewSVGPainter("", canvas)
-	t1 := Trapezium{60,1}
+	t1 := Trapezium{60, 1}
 	// grid
-	painter.Paint(StyleWith{Grid{PointZero, 6, 6, t1.Delta().X , t1.Delta().Y }, "stroke-width:0.01px;stroke:gray"})
+	painter.Paint(StyleWith{Raster{PointZero, 6, 6, t1.Delta().X, t1.Delta().Y}, "stroke-width:0.01px;stroke:gray"})
 	// x-y
-	painter.Paint(StyleWith{Grid{PointZero, 6, 6, 0 , 0 }, "stroke-width:0.01px;stroke:red"})
-	
-    g0 := new(Composite)
-	g0.Add(StyleWith{t1,"fill:9FEE00;stroke:9FEE00;stroke-width:0.01px"})
-	
-	g0.Add(StyleWith{TranslateBy{RotateBy{t1, 120}, t1.Delta().Scaled(0, 0)},"fill:1240AB;stroke:1240AB;stroke-width:0.01px"})
+	painter.Paint(StyleWith{Raster{PointZero, 6, 6, 0, 0}, "stroke-width:0.01px;stroke:red"})
 
+	g0 := new(Composite)
+	g0.Add(StyleWith{t1, "fill:9FEE00;stroke:9FEE00;stroke-width:0.01px"})
+
+	g0.Add(StyleWith{TranslateBy{RotateBy{t1, 120}, t1.Delta().Scaled(0, 0)}, "fill:1240AB;stroke:1240AB;stroke-width:0.01px"})
 
 	//t3 := Trapezium{"fill:FFAA00;stroke:FFAA00;stroke-width:0.01px", 60, 1}
 	//g0.Add(TranslateBy{RotateBy{t3, -120}, Point{0.75, -HCos30}})
