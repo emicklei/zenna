@@ -41,7 +41,7 @@ func (p Painter) VisitScaleBy(s ScaleBy) {
 	p.canvas.Gend()
 }
 func (p Painter) VisitRotateBy(r RotateBy) {
-	p.canvas.Rotate(r.Angle)
+	p.canvas.Rotate(-r.Angle)
 	r.Shape.Accept(p)
 	p.canvas.Gend()
 }
