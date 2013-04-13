@@ -9,6 +9,8 @@ type Visitor interface {
 	VisitStyleWith(s StyleWith)
 	VisitLineSegment(l LineSegment)
 	VisitCircle(c Circle)
+	VisitRectangle(r Rectangle)
+	VisitRoundedRectangle(r RoundedRectangle)
 }
 
 type Geometric interface {

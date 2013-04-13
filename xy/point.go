@@ -16,6 +16,11 @@ func P(x, y float64) Point {
 	return Point{x, y}
 }
 
+// Polar returns a Point on a Circle with a radius and angle in radians.
+func Polar(radius float64, angle float64) Point {
+	return Point{math.Cos(angle) * radius, math.Sin(angle) * radius}
+}
+
 func (p Point) Plus(d Point) Point {
 	return Point{p.X + d.X, p.Y + d.Y}
 }

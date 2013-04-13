@@ -8,8 +8,8 @@ type Circle struct {
 }
 
 // Circ is a convenient Circle constructor
-func Circ(center Point) {
-
+func Circ(center Point, radius float64) Circle {
+	return Circle{center, radius, 0, TwoPi}
 }
 
 func (c Circle) VertexAtFraction(fraction float64) Point {

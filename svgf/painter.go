@@ -68,6 +68,14 @@ func (p Painter) VisitLineSegment(l LineSegment) {
 	(&SVGF{p.canvas}).Line(l.Begin.X, -l.Begin.Y, l.End.X, -l.End.Y, p.style)
 }
 
+func (p Painter) VisitRectangle(r Rectangle) {
+	// todo
+}
+
+func (p Painter) VisitRoundedRectangle(r RoundedRectangle) {
+	// todo
+}
+
 // Code below exists until SVG package has support for Float64 numbers
 
 type SVGF struct {
