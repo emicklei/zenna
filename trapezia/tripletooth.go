@@ -10,10 +10,10 @@ import (
 
 func main() {
 	canvas := svg.New(os.Stdout)
-	canvas.Start(300, 300)
+	canvas.Start(600, 600)
 	canvas.Title("TripleTooth")
-	canvas.Translate(150, 150)
-	canvas.Scale(100)
+	canvas.Translate(300, 300)
+	canvas.Scale(150)
 
 	painter := NewSVGPainter("", canvas)
 
