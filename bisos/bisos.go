@@ -21,15 +21,16 @@ func main() {
 	painter := NewSVGPainter("", canvas)
 
 	// grid
-//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, BisosDelta.X/2, BisosDelta.Y/2}, "stroke-width:1px;stroke:gray"})
+	//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, BisosDelta.X/2, BisosDelta.Y/2}, "stroke-width:1px;stroke:gray"})
 	// x-y
-//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, 0 , 0 }, "stroke-width:1px;stroke:red"})
-	
+	//	painter.Paint(StyleWith{Grid{PointZero, 800, 600, 0 , 0 }, "stroke-width:1px;stroke:red"})
+
 	switch os.Args[1] {
 	case "cover":
-		painter.Paint(StyleWith{ScaleBy{bisos_cover(), 0.5},"stroke:blue;fill:none"})
+		painter.Paint(StyleWith{ScaleBy{bisos_cover(), 0.5}, "stroke:blue;fill:none"})
 	case "1_3":
-		painter.Paint(StyleWith{ScaleBy{bisos_1_3(), 0.5},"stroke:red;fill:none"})
+		painter.Paint(StyleWith{ScaleBy{bisos_1_3(), 0.5}, "stroke:red;fill:none"})
+		//painter.Paint(StyleWith{"stroke:red;fill:none", ScaleBy{0.5, bisos_1_3()}})
 	}
 
 	canvas.Gend()
