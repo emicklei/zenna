@@ -27,7 +27,7 @@ func (p *Painter) Style(newStyle string) {
 }
 
 func (p Painter) VisitCircle(c Circle) {
-	(&SVGF{p.canvas}).Circle(c.Center.X, c.Center.Y, c.Radius, p.style)
+	(&SVGF{p.canvas}).Circle(c.Center.X, -c.Center.Y, c.Radius, p.style)
 }
 
 func (p Painter) VisitTranslateBy(t TranslateBy) {
