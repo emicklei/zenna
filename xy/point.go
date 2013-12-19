@@ -16,6 +16,24 @@ func P(x, y float64) Point {
 	return Point{x, y}
 }
 
+func (p Point) Length() float64 {
+	math.Sqrt(float64((p.x * p.x) + (p.y * p.y)))
+}
+
+func (p Point) Dot(Point q) float64 {
+	return (p.x * q.x) + (p.y * q.y)
+}
+
+func (p Point) DistanceTo(Point q) float64 {
+	dx := q.x - p.x
+	dy := q.y - p.x
+	return math.Sqrt((dx * dx) + (dy * dy))
+}
+
+func (p Point) AngleTo(Point q) float64 {
+	return math.Atan2(q.y-p.y, q.x-p.x)
+}
+
 // Polar returns a Point on a Circle with a radius and angle in radians.
 func Polar(radius float64, angle float64) Point {
 	return Point{math.Cos(angle) * radius, math.Sin(angle) * radius}
