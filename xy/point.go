@@ -2,7 +2,10 @@ package xy
 
 import (
 	"fmt"
+	"log"
 	"math"
+	"strconv"
+	"strings"
 )
 
 type Point struct {
@@ -75,4 +78,18 @@ func FloatSlices(points []Point) (x, y []float64) {
 
 func (p Point) String() string {
 	return fmt.Sprintf("P(%v,%v)", p.X, p.Y)
+}
+
+// E.g. 12.34,45.65
+func ParsePoint(encoded string) Point {
+	nums := strings.Split(encoded, ",")
+	xv, err := strconv.ParseFloat(nums[0], 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	yv, err := strconv.ParseFloat(nums[1], 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return Point{xv, yv}
 }
