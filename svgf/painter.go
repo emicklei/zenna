@@ -2,9 +2,10 @@ package svgf
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/xy"
-	"strings"
 )
 
 // Painter is a Geometric Visitor that renders SVG documents
@@ -51,11 +52,11 @@ func (p Painter) VisitComposite(s Composite) {
 	}
 }
 func (p Painter) VisitPolygon(poly Polygon) {
-	fmt.Printf(`<polygon style="%s" points="`, p.style)
+	fmt.Fprintf(p.canvas.Writer, `<polygon style="%s" points="`, p.style)
 	for _, each := range poly.Points {
 		fmt.Fprintf(p.canvas.Writer, "%v,%v ", each.X, -each.Y)
 	}
-	fmt.Println(`" />`)
+	fmt.Fprintln(p.canvas.Writer, `" />`)
 }
 func (p Painter) VisitStyleWith(s StyleWith) {
 	old := p.style

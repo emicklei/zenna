@@ -1,11 +1,12 @@
 package main
 
 import (
+	_ "math"
+	"os"
+
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
-	_ "math"
-	"os"
 )
 
 func main() {
@@ -26,7 +27,11 @@ func main() {
 }
 
 func usePen(painter Painter) {
-	painter.Style("stroke-width:0.01px;stroke:blue;fill:none")
+	// red:#FF358B
+	// green: #AEEE00
+	// blue: #01B0F0
+
+	painter.Style("stroke-width:0.08px;stroke:#01B0F0;fill:#AEEE00")
 	p := NewPen(PointZero, P(1, 1))
 	p.Move(0, 0.5)
 	p.Move(-0.5*Cos30, -0.25)
