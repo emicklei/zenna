@@ -1,12 +1,12 @@
 package xy
 
 type Visitor interface {
-	VisitTranslateBy(t TranslateBy)
-	VisitScaleBy(s ScaleBy)
-	VisitRotateBy(r RotateBy)
+	VisitTranslateOn(t TranslateOn)
+	VisitScaleOn(s ScaleOn)
+	VisitRotateOn(r RotateOn)
 	VisitComposite(c Composite)
 	VisitPolygon(p Polygon)
-	VisitStyleWith(s StyleWith)
+	VisitStyleOn(s StyleOn)
 	VisitLineSegment(l LineSegment)
 	VisitCircle(c Circle)
 	VisitRectangle(r Rectangle)

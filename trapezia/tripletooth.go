@@ -18,8 +18,8 @@ func main() {
 
 	painter := NewSVGPainter("", canvas)
 
-	usePen(painter)
-	// useTrapezia(painter)
+	// usePen(painter)
+	useTrapezia(painter)
 
 	canvas.Gend() //scale
 	canvas.Gend() //translat
@@ -66,15 +66,19 @@ func useTrapezia(painter Painter) {
 	painter.Style("stroke-width:0.01px;stroke:blue;fill:blue")
 
 	g0 := new(Composite)
-	g0.Add(TranslateBy{RotateBy{t1, 90}, P(2*dy/3, 0)})
-	g0.Add(TranslateBy{RotateBy{t1, 30}, P(-2*dx-(dy/3), 0.5*t1.Length)})
+	g0.Add(TranslateOn{P(2*dy/3, 0),
+		RotateOn{90, t1}})
+	g0.Add(TranslateOn{
+		P(-2*dx-(dy/3), 0.5*t1.Length),
+		RotateOn{30, t1}})
 
 	g1 := new(Composite)
 	g1.Add(g0)
-	g1.Add(RotateBy{g0, 120})
-	g1.Add(RotateBy{g0, 240})
+	g1.Add(RotateOn{120, g0})
+	g1.Add(RotateOn{240, g0})
 
 	painter.Paint(g1)
-	painter.Paint(TranslateBy{RotateBy{g1, -60}, P(-t1.Length*Cos30+(dy/3), -2)})
+	painter.Paint(TranslateOn{P(-t1.Length*Cos30+(dy/3), -2),
+		RotateOn{-60, g1}})
 
 }

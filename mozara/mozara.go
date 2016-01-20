@@ -46,14 +46,14 @@ func main() {
 
 	g.Accept(vis)
 
-	TranslateBy{g, Point{moz.Width(), moz.Height()}}.Accept(vis)
-	TranslateBy{g, Point{0, moz.Height()}}.Accept(vis)
-	TranslateBy{g, Point{0, -moz.Height()}}.Accept(vis)
-	TranslateBy{g, Point{moz.Width(), -moz.Height()}}.Accept(vis)
-	TranslateBy{g, Point{moz.Width(), 0}}.Accept(vis)
-	TranslateBy{g, Point{-moz.Width(), 0}}.Accept(vis)
-	TranslateBy{g, Point{-moz.Width(), -moz.Height()}}.Accept(vis)
-	TranslateBy{g, Point{-moz.Width(), moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{moz.Width(), moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{0, moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{0, -moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{moz.Width(), -moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{moz.Width(), 0}}.Accept(vis)
+	TranslateOn{g, Point{-moz.Width(), 0}}.Accept(vis)
+	TranslateOn{g, Point{-moz.Width(), -moz.Height()}}.Accept(vis)
+	TranslateOn{g, Point{-moz.Width(), moz.Height()}}.Accept(vis)
 
 	canvas.Gend() // scale
 	canvas.Gend() // translate
