@@ -1,11 +1,12 @@
 package main
 
 import (
+	_ "math"
+	"os"
+
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
-	_ "math"
-	"os"
 )
 
 func main() {
@@ -18,9 +19,9 @@ func main() {
 	painter := NewSVGPainter("", canvas)
 	t1 := Trapezium{60, 1}
 	// grid
-	painter.Paint(StyleWith{Raster{PointZero, 6, 6, t1.Delta().X, t1.Delta().Y}, "stroke-width:0.01px;stroke:gray"})
+	painter.Paint(Style{"stroke-width:0.01px;stroke:gray", Raster{PointZero, 6, 6, t1.Delta().X, t1.Delta().Y}})
 	// x-y
-	painter.Paint(StyleWith{Raster{PointZero, 6, 6, 0, 0}, "stroke-width:0.01px;stroke:red"})
+	painter.Paint(Style{"stroke-width:0.01px;stroke:red", Raster{PointZero, 6, 6, 0, 0}})
 
 	canvas.Gend() //scale
 	canvas.Gend() //translat

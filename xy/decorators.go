@@ -1,37 +1,37 @@
 package xy
 
-type TranslateOn struct {
+type Translate struct {
 	Translation Point
 	Shape       Geometric
 }
 
-func (t TranslateOn) Accept(visitor Visitor) {
-	visitor.VisitTranslateOn(t)
+func (t Translate) Accept(visitor Visitor) {
+	visitor.VisitTranslate(t)
 }
 
-type ScaleOn struct {
+type Scale struct {
 	Scale float64
 	Shape Geometric
 }
 
-func (s ScaleOn) Accept(visitor Visitor) {
-	visitor.VisitScaleOn(s)
+func (s Scale) Accept(visitor Visitor) {
+	visitor.VisitScale(s)
 }
 
-type RotateOn struct {
+type Rotate struct {
 	Angle float64
 	Shape Geometric
 }
 
-func (r RotateOn) Accept(visitor Visitor) {
-	visitor.VisitRotateOn(r)
+func (r Rotate) Accept(visitor Visitor) {
+	visitor.VisitRotate(r)
 }
 
-type StyleOn struct {
+type Style struct {
 	Style string
 	Shape Geometric
 }
 
-func (s StyleOn) Accept(visitor Visitor) {
-	visitor.VisitStyleOn(s)
+func (s Style) Accept(visitor Visitor) {
+	visitor.VisitStyle(s)
 }

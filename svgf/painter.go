@@ -31,17 +31,17 @@ func (p Painter) VisitCircle(c Circle) {
 	(&SVGF{p.canvas}).Circle(c.Center.X, -c.Center.Y, c.Radius, p.style)
 }
 
-func (p Painter) VisitTranslateOn(t TranslateOn) {
+func (p Painter) VisitTranslate(t Translate) {
 	p.canvas.Gtransform(fmt.Sprintf(`translate(%f,%f)`, t.Translation.X, -t.Translation.Y))
 	t.Shape.Accept(p)
 	p.canvas.Gend()
 }
-func (p Painter) VisitScaleOn(s ScaleOn) {
+func (p Painter) VisitScale(s Scale) {
 	p.canvas.Scale(s.Scale)
 	s.Shape.Accept(p)
 	p.canvas.Gend()
 }
-func (p Painter) VisitRotateOn(r RotateOn) {
+func (p Painter) VisitRotate(r Rotate) {
 	p.canvas.Rotate(-r.Angle)
 	r.Shape.Accept(p)
 	p.canvas.Gend()
@@ -58,7 +58,7 @@ func (p Painter) VisitPolygon(poly Polygon) {
 	}
 	fmt.Fprintln(p.canvas.Writer, `" />`)
 }
-func (p Painter) VisitStyleOn(s StyleOn) {
+func (p Painter) VisitStyle(s Style) {
 	old := p.style
 	(&p).style = s.Style
 	s.Shape.Accept(p)

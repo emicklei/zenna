@@ -1,11 +1,12 @@
 package main
 
 import (
+	"math"
+	"os"
+
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
-	"math"
-	"os"
 )
 
 func main() {
@@ -23,37 +24,37 @@ func main() {
 
 	moz := Mozara{40, 20}
 	g := new(Composite)
-	m1 := StyleWith{Polygon{Mirrored(moz.Mozara_1(), AxisX(0.0))}, st}
+	m1 := Style{st, Polygon{Mirrored(moz.Mozara_1(), AxisX(0.0))}}
 	addToGroup(m1, g)
 
-	m2 := StyleWith{Polygon{Mirrored(moz.Mozara_2(), AxisX(0.0))}, st}
+	m2 := Style{st, Polygon{Mirrored(moz.Mozara_2(), AxisX(0.0))}}
 	addToGroup(m2, g)
 
-	m3 := StyleWith{Polygon{Mirrored(moz.Mozara_3(), AxisX(0.0))}, st}
+	m3 := Style{st, Polygon{Mirrored(moz.Mozara_3(), AxisX(0.0))}}
 	addToGroup(m3, g)
 
-	m4 := StyleWith{Polygon{Mirrored(moz.Mozara_4(), AxisX(0.0))}, st}
+	m4 := Style{st, Polygon{Mirrored(moz.Mozara_4(), AxisX(0.0))}}
 	addToGroup(m4, g)
 
-	m5 := StyleWith{Polygon{Mirrored(moz.Mozara_5(), AxisX(0.0))}, st}
+	m5 := Style{st, Polygon{Mirrored(moz.Mozara_5(), AxisX(0.0))}}
 	addToGroup(m5, g)
 
-	m6 := StyleWith{Polygon{Mirrored(moz.Mozara_6(), AxisX(0.0))}, st}
+	m6 := Style{st, Polygon{Mirrored(moz.Mozara_6(), AxisX(0.0))}}
 	addToGroup(m6, g)
 
-	m7 := StyleWith{Polygon{Mirrored(moz.Mozara_7(), AxisX(0.0))}, st}
+	m7 := Style{st, Polygon{Mirrored(moz.Mozara_7(), AxisX(0.0))}}
 	addToGroup(m7, g)
 
 	g.Accept(vis)
 
-	TranslateOn{g, Point{moz.Width(), moz.Height()}}.Accept(vis)
-	TranslateOn{g, Point{0, moz.Height()}}.Accept(vis)
-	TranslateOn{g, Point{0, -moz.Height()}}.Accept(vis)
-	TranslateOn{g, Point{moz.Width(), -moz.Height()}}.Accept(vis)
-	TranslateOn{g, Point{moz.Width(), 0}}.Accept(vis)
-	TranslateOn{g, Point{-moz.Width(), 0}}.Accept(vis)
-	TranslateOn{g, Point{-moz.Width(), -moz.Height()}}.Accept(vis)
-	TranslateOn{g, Point{-moz.Width(), moz.Height()}}.Accept(vis)
+	Translate{Point{moz.Width(), moz.Height()}, g}.Accept(vis)
+	Translate{Point{0, moz.Height()}, g}.Accept(vis)
+	Translate{Point{0, -moz.Height()}, g}.Accept(vis)
+	Translate{Point{moz.Width(), -moz.Height()}, g}.Accept(vis)
+	Translate{Point{moz.Width(), 0}, g}.Accept(vis)
+	Translate{Point{-moz.Width(), 0}, g}.Accept(vis)
+	Translate{Point{-moz.Width(), -moz.Height()}, g}.Accept(vis)
+	Translate{Point{-moz.Width(), moz.Height()}, g}.Accept(vis)
 
 	canvas.Gend() // scale
 	canvas.Gend() // translate
@@ -63,9 +64,9 @@ func main() {
 
 func addToGroup(s Geometric, g *Composite) {
 	g.Add(s)
-	g.Add(RotateBy{s, 90})
-	g.Add(RotateBy{s, 180})
-	g.Add(RotateBy{s, 270})
+	g.Add(Rotate{90, s})
+	g.Add(Rotate{180, s})
+	g.Add(Rotate{270, s})
 }
 
 var tan22d5 = math.Tan(22.5 * math.Pi / 180)

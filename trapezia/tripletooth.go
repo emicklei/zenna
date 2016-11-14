@@ -66,19 +66,19 @@ func useTrapezia(painter Painter) {
 	painter.Style("stroke-width:0.01px;stroke:blue;fill:blue")
 
 	g0 := new(Composite)
-	g0.Add(TranslateOn{P(2*dy/3, 0),
-		RotateOn{90, t1}})
-	g0.Add(TranslateOn{
+	g0.Add(Translate{P(2*dy/3, 0),
+		Rotate{90, t1}})
+	g0.Add(Translate{
 		P(-2*dx-(dy/3), 0.5*t1.Length),
-		RotateOn{30, t1}})
+		Rotate{30, t1}})
 
 	g1 := new(Composite)
 	g1.Add(g0)
-	g1.Add(RotateOn{120, g0})
-	g1.Add(RotateOn{240, g0})
+	g1.Add(Rotate{120, g0})
+	g1.Add(Rotate{240, g0})
 
 	painter.Paint(g1)
-	painter.Paint(TranslateOn{P(-t1.Length*Cos30+(dy/3), -2),
-		RotateOn{-60, g1}})
+	painter.Paint(Translate{P(-t1.Length*Cos30+(dy/3), -2),
+		Rotate{-60, g1}})
 
 }

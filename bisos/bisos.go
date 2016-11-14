@@ -1,10 +1,11 @@
 package main
 
 import (
+	"os"
+
 	"github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
-	"os"
 )
 
 func main() {
@@ -27,9 +28,9 @@ func main() {
 
 	switch os.Args[1] {
 	case "cover":
-		painter.Paint(StyleWith{ScaleBy{bisos_cover(), 0.5}, "stroke:blue;fill:none"})
+		painter.Paint(Style{"stroke:blue;fill:none", Scale{0.5, bisos_cover()}})
 	case "1_3":
-		painter.Paint(StyleWith{ScaleBy{bisos_1_3(), 0.5}, "stroke:red;fill:none"})
+		painter.Paint(Style{"stroke:red;fill:none", Scale{0.5, bisos_1_3()}})
 		//painter.Paint(StyleWith{"stroke:red;fill:none", ScaleBy{0.5, bisos_1_3()}})
 	}
 
