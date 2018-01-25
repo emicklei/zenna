@@ -46,8 +46,8 @@ func (p Painter) VisitRotate(r Rotate) {
 	r.Shape.Accept(p)
 	p.canvas.Gend()
 }
-func (p Painter) VisitComposite(s Composite) {
-	for _, each := range s.Shapes {
+func (p Painter) VisitGroup(s Group) {
+	for _, each := range s {
 		each.Accept(p)
 	}
 }
@@ -67,6 +67,11 @@ func (p Painter) VisitStyle(s Style) {
 
 func (p Painter) VisitLineSegment(l LineSegment) {
 	(&SVGF{p.canvas}).Line(l.Begin.X, -l.Begin.Y, l.End.X, -l.End.Y, p.style)
+}
+
+// VisitEllipse is part of Visitor
+func (p Painter) VisitEllipse(e Ellipse) {
+	(&SVGF{p.canvas}).Ellipse(e.Center.X, e.Center.Y, e.RadiusX, e.RadiusY, p.style)
 }
 
 func (p Painter) VisitRectangle(r Rectangle) {
@@ -97,12 +102,17 @@ func (svgf *SVGF) Line(x1 float64, y1 float64, x2 float64, y2 float64, s ...stri
 
 // Polygon draws a series of line segments using an array of x, y coordinates, with optional style.
 // Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#PolygonElement
-func (svg *SVGF) Polygon(x []float64, y []float64, s ...string) {
-	fmt.Fprintf(svg.Writer, `<polygon style="%s" points="`, s[0])
+func (svgf *SVGF) Polygon(x []float64, y []float64, s ...string) {
+	fmt.Fprintf(svgf.Writer, `<polygon style="%s" points="`, s[0])
 	for i := 0; i < len(x); i++ {
-		fmt.Fprintf(svg.Writer, "%v,%v ", x[i], y[i])
+		fmt.Fprintf(svgf.Writer, "%v,%v ", x[i], y[i])
 	}
-	fmt.Fprintf(svg.Writer, `" />`)
+	fmt.Fprintf(svgf.Writer, `" />`)
+}
+
+// https://www.w3.org/TR/SVG11/shapes.html#EllipseElement
+func (svgf *SVGF) Ellipse(x1 float64, y1 float64, rx float64, ry float64, s ...string) {
+	fmt.Fprintf(svgf.Writer, `<ellipse cx="%f" cy="%f" rx="%f" ry="%f" %s`, x1, -y1, rx, ry, endstyle(s, emptyclose))
 }
 
 // ----- Copied Code because not Exported

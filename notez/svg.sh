@@ -1,0 +1,1 @@
+go run *.go > notez.svg 

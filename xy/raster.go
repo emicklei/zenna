@@ -11,7 +11,7 @@ type Raster struct {
 }
 
 func (g Raster) Accept(visitor Visitor) {
-	c := new(Composite)
+	c := new(Group)
 	hc := math.Floor(g.Width / g.Dx / 2)
 	vc := math.Floor(g.Height / g.Dy / 2)
 	hw := g.Width / 2
