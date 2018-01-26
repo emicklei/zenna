@@ -82,6 +82,10 @@ func (p Painter) VisitRoundedRectangle(r RoundedRectangle) {
 	// todo
 }
 
+func (p Painter) VisitText(t Text) {
+	(&SVGF{p.canvas}).Text(t.Position.X, t.Position.Y, t.Delta.X, t.Delta.Y, t.Text, p.style)
+}
+
 // Code below exists until SVG package has support for Float64 numbers
 
 type SVGF struct {
@@ -113,6 +117,11 @@ func (svgf *SVGF) Polygon(x []float64, y []float64, s ...string) {
 // https://www.w3.org/TR/SVG11/shapes.html#EllipseElement
 func (svgf *SVGF) Ellipse(x1 float64, y1 float64, rx float64, ry float64, s ...string) {
 	fmt.Fprintf(svgf.Writer, `<ellipse cx="%f" cy="%f" rx="%f" ry="%f" %s`, x1, -y1, rx, ry, endstyle(s, emptyclose))
+}
+
+// https://www.w3.org/TR/SVG11/shapes.html#EllipseElement
+func (svgf *SVGF) Text(x float64, y float64, dx float64, dy float64, t string, s string) {
+	fmt.Fprintf(svgf.Writer, `<text x="%f" y="%f" dx="%f" dy="%f" %s>%s</text>`, x, -y, dx, -dy, style(s), t)
 }
 
 // ----- Copied Code because not Exported

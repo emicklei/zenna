@@ -46,6 +46,10 @@ func (p Point) Plus(d Point) Point {
 	return Point{p.X + d.X, p.Y + d.Y}
 }
 
+func (p Point) Min(d Point) Point {
+	return Point{p.X - d.X, p.Y - d.Y}
+}
+
 func (p Point) Multiply(num float64) Point {
 	return Point{p.X * num, p.Y * num}
 }
