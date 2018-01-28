@@ -13,6 +13,7 @@ type Visitor interface {
 	VisitRoundedRectangle(r RoundedRectangle)
 	VisitEllipse(e Ellipse)
 	VisitText(t Text)
+	VisitImage(i Image)
 }
 
 type Geometric interface {

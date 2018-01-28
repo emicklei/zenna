@@ -13,9 +13,9 @@ const (
 	stickStyle   = "stroke-width:2px;stroke:black;stroke-linecap:round"
 	bubbleStyle  = "stroke-width:2px;stroke:black;fill:black"
 	barStyle     = "stroke-width:2px;stroke:black"
-	barWidth     = 1200
+	barWidth     = 1400
 	auxBarStyle  = "stroke-width:2px;stroke:black"
-	noteStyle    = "font-weight:bold"
+	noteStyle    = "font-size:24px;font-weight:bold"
 	stickSpaceX  = 42.0
 	bubbleSpaceY = 17.0
 	c            = 0
@@ -34,22 +34,22 @@ var downBar = Style{auxBarStyle,
 
 func main() {
 	canvas := svg.New(os.Stdout)
-	canvas.Start(2400, 1200)
+	canvas.Start(2400, barWidth)
 	canvas.Title("Musik Notez")
 	painter := svgf.NewSVGPainter("", canvas)
 
 	canvas.Translate(barWidth/2, 240)
-	key(painter, GnoteName)
+	key(painter, GnoteName, paintViolin)
 	canvas.Gend() // Translate
 
 	canvas.Translate(barWidth/2, 480)
-	key(painter, FnoteName)
+	key(painter, FnoteName, paintBass)
 	canvas.Gend() // Translate
 
 	canvas.End()
 }
 
-func key(painter svgf.Painter, nameFunc func(int) string) {
+func key(painter svgf.Painter, nameFunc func(int) string, decoration func(svgf.Painter)) {
 	stick := Style{stickStyle,
 		LineSegment{P(0, 0), P(0, 60)}}
 	bubble := Translate{
@@ -77,13 +77,15 @@ func key(painter svgf.Painter, nameFunc func(int) string) {
 		painter.Paint(Translate{off, upNote})
 		painter.Paint(Translate{P(off.X+upTextDX, off.Y+upTextDY), Style{noteStyle, Text{Text: nameFunc(note)}}})
 	}
-	for t := 0; t < 14; t++ {
+	for t := 0; t < 15; t++ {
 		note := c - t
 		off := P(float64(t)*-stickSpaceX, float64(t)*bubbleSpaceY*-0.5)
 		auxbars(painter, off, note)
 		painter.Paint(Translate{off, downNote})
 		painter.Paint(Translate{P(off.X+downTextDX, off.Y+downTextDY), Style{noteStyle, Text{Text: nameFunc(note)}}})
 	}
+
+	decoration(painter)
 }
 
 func auxbars(painter svgf.Painter, offset Point, note int) {
@@ -153,4 +155,14 @@ func FnoteName(note int) string {
 		return "B"
 	}
 	return strconv.Itoa(note)
+}
+
+func paintViolin(painter svgf.Painter) {
+	i := Image{Center: P(-barWidth/2-20, -62), Width: 70, Height: 220, URL: "violin.png"}
+	painter.Paint(Style{"stroke-width:1px;stroke:black", i})
+}
+
+func paintBass(painter svgf.Painter) {
+	i := Image{Center: P(-barWidth/2, -75), Width: 50, Height: 50, URL: "bass.png"}
+	painter.Paint(Style{"stroke-width:1px;stroke:black", i})
 }
