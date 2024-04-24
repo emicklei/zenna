@@ -4,6 +4,12 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>Musik Notez</title>
+<g transform="translate(20.000000,40.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" style="font-size:24px;font-weight:bold">♯ F C G D A E (B)</text></g>
+<g transform="translate(20.000000,80.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" style="font-size:24px;font-weight:bold">♭ B E A D G C (F)</text></g>
+<g transform="translate(500.000000,600.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >Sheet of Notes, created by ernestmicklei.com. CC BY-ND license.</text></g>
 <g transform="translate(700,240)">
 <line x1="-700" y1="-34.5" x2="700" y2="-34.5" style="stroke-width:2px;stroke:black"/>
 <line x1="-700" y1="-51.5" x2="700" y2="-51.5" style="stroke-width:2px;stroke:black"/>
@@ -102,6 +108,8 @@
 <g transform="translate(357.000000,-76.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(369.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(357.000000,-76.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -118,6 +126,8 @@
 <g transform="translate(399.000000,-76.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(411.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(399.000000,-85.000000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -137,6 +147,8 @@
 <g transform="translate(441.000000,-93.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(453.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(441.000000,-93.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -156,6 +168,8 @@
 <g transform="translate(483.000000,-93.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(495.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(483.000000,-102.000000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -178,6 +192,8 @@
 <g transform="translate(525.000000,-110.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(537.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(525.000000,-110.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -270,6 +286,8 @@
 <g transform="translate(-294.000000,59.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-310.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(-294.000000,59.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -286,6 +304,8 @@
 <g transform="translate(-336.000000,59.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-352.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(-336.000000,68.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -305,6 +325,8 @@
 <g transform="translate(-378.000000,76.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-394.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(-378.000000,76.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -324,6 +346,8 @@
 <g transform="translate(-420.000000,76.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-436.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(-420.000000,85.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -346,6 +370,8 @@
 <g transform="translate(-462.000000,93.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-478.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(-462.000000,93.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -368,6 +394,8 @@
 <g transform="translate(-504.000000,93.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-520.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(-504.000000,102.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -393,6 +421,8 @@
 <g transform="translate(-546.000000,110.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-562.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >5</text></g>
 <g transform="translate(-546.000000,110.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -418,6 +448,8 @@
 <g transform="translate(-588.000000,110.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-604.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >5</text></g>
 <g transform="translate(-588.000000,119.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -527,6 +559,8 @@
 <g transform="translate(357.000000,-76.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(369.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(357.000000,-76.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -543,6 +577,8 @@
 <g transform="translate(399.000000,-76.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(411.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(399.000000,-85.000000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -562,6 +598,8 @@
 <g transform="translate(441.000000,-93.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(453.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(441.000000,-93.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -581,6 +619,8 @@
 <g transform="translate(483.000000,-93.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(495.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(483.000000,-102.000000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -603,6 +643,8 @@
 <g transform="translate(525.000000,-110.500000)">
 <line x1="-6" y1="-60" x2="29" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(537.000000,-106.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(525.000000,-110.500000)">
 <line x1="0" y1="-0" x2="0" y2="-60" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(11.500000,-60.000000)">
@@ -695,6 +737,8 @@
 <g transform="translate(-294.000000,59.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-310.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(-294.000000,59.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -711,6 +755,8 @@
 <g transform="translate(-336.000000,59.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-352.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >2</text></g>
 <g transform="translate(-336.000000,68.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -730,6 +776,8 @@
 <g transform="translate(-378.000000,76.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-394.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(-378.000000,76.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -749,6 +797,8 @@
 <g transform="translate(-420.000000,76.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-436.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >3</text></g>
 <g transform="translate(-420.000000,85.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -771,6 +821,8 @@
 <g transform="translate(-462.000000,93.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-478.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(-462.000000,93.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -793,6 +845,8 @@
 <g transform="translate(-504.000000,93.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-520.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >4</text></g>
 <g transform="translate(-504.000000,102.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -818,6 +872,8 @@
 <g transform="translate(-546.000000,110.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-562.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >5</text></g>
 <g transform="translate(-546.000000,110.500000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -843,6 +899,8 @@
 <g transform="translate(-588.000000,110.500000)">
 <line x1="-29" y1="-60" x2="6" y2="-60" style="stroke-width:2px;stroke:black"/>
 </g>
+<g transform="translate(-604.000000,-21.000000)">
+<text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" >5</text></g>
 <g transform="translate(-588.000000,119.000000)">
 <line x1="0" y1="-60" x2="0" y2="-120" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 <g transform="translate(-11.500000,-60.000000)">
@@ -854,4 +912,8 @@
 <g transform="translate(-606.000000,103.000000)">
 <text x="0.000000" y="-0.000000" dx="0.000000" dy="-0.000000" style="font-size:24px;font-weight:bold">C</text></g>
 <image x="-675.000000px" y="-100.000000px" width="50.000000" height="50.000000" href="bass.png" style="stroke-width:1px;stroke:black"/></g>
+<g transform="translate(700,285)">
+<line x1="-218" y1="-0" x2="290" y2="-0" style="stroke-width:1px;stroke:black;"/>
+<circle cx="-218" cy="-0" r="3" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
+<circle cx="290" cy="-0" r="3" style="stroke-width:2px;stroke:black;stroke-linecap:round"/>
 </svg>

@@ -1,2 +1,2 @@
 # watcher -cmd="sh svg.sh" -keepalive -startcmd
-go run *.go > notez.svg 
+go run *.go > notez.svg || echo "fail"

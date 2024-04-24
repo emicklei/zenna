@@ -9,13 +9,17 @@ import (
 	. "github.com/emicklei/zenna/xy"
 )
 
+// watcher -cmd="sh svg.sh" -list main.go
+
 const (
 	stickStyle   = "stroke-width:2px;stroke:black;stroke-linecap:round"
+	ccStyle      = "stroke-width:1px;stroke:black;"
 	bubbleStyle  = "stroke-width:2px;stroke:black;fill:black"
 	barStyle     = "stroke-width:2px;stroke:black"
 	barWidth     = 1400
 	auxBarStyle  = "stroke-width:2px;stroke:black"
 	noteStyle    = "font-size:24px;font-weight:bold"
+	footerStyle  = "font-size:24px;font-weight:bold"
 	stickSpaceX  = 42.0
 	bubbleSpaceY = 17.0
 	c            = 0
@@ -38,6 +42,12 @@ func main() {
 	canvas.Title("Musik Notez")
 	painter := svgf.NewSVGPainter("", canvas)
 
+	painter.Paint(Translated(P(20, -80+40), Styled(noteStyle, Text{Text: "♯ F C G D A E (B)"})))
+	painter.Paint(Translated(P(20, -80), Styled(noteStyle, Text{Text: "♭ B E A D G C (F)"})))
+
+	// licence
+	painter.Paint(Translated(P(500, -600), Text{Text: "Sheet of Notes, created by ernestmicklei.com. CC BY-ND license."}))
+
 	canvas.Translate(barWidth/2, 240)
 	key(painter, GnoteName, paintViolin)
 	canvas.Gend() // Translate
@@ -46,17 +56,34 @@ func main() {
 	key(painter, FnoteName, paintBass)
 	canvas.Gend() // Translate
 
+	// connect the Cs
+	canvas.Translate(barWidth/2, 285)
+	cleft := P(stickSpaceX*-5-8, 0)
+	cright := P(stickSpaceX*7-4, 0)
+	painter.Paint(Styled(ccStyle, LineSegment{
+		Begin: cleft,
+		End:   cright,
+	}))
+	painter.Paint(Styled(stickStyle, Circle{
+		Center: cleft,
+		Radius: 3,
+	}))
+	painter.Paint(Styled(stickStyle, Circle{
+		Center: cright,
+		Radius: 3,
+	}))
+
 	canvas.End()
 }
 
 func key(painter svgf.Painter, nameFunc func(int) string, decoration func(svgf.Painter)) {
-	stick := Style{stickStyle,
-		LineSegment{P(0, 0), P(0, 60)}}
-	bubble := Translate{
+	stick := Styled(stickStyle,
+		LineSegment{P(0, 0), P(0, 60)})
+	bubble := Translated(
 		P(11.5, 60),
-		Rotate{15,
-			Style{bubbleStyle,
-				Ellipse{PointZero, 12, 8, 0, 0}}}}
+		Rotated(15,
+			Styled(bubbleStyle,
+				Ellipse{PointZero, 12, 8, 0, 0})))
 	upNote := Group{stick, bubble}
 
 	stick2 := Style{stickStyle,
@@ -93,10 +120,20 @@ func auxbars(painter svgf.Painter, offset Point, note int) {
 		for t := -2; t > note+2; t -= 2 {
 			painter.Paint(Translate{P(offset.X, float64(t-3)*bubbleSpaceY*0.5), downBar})
 		}
+		// counter of extra bars
+		num := (11-note)/2 - 7
+		if num > 1 {
+			painter.Paint(Translated(P(offset.X-16, bubbleSpaceY+4), Text{Text: strconv.Itoa(num)}))
+		}
 	}
 	if note > 6 {
 		for t := 4; t < note-2; t += 2 {
 			painter.Paint(Translate{P(offset.X, float64(t+3)*bubbleSpaceY*0.5), upBar})
+		}
+		// counter of extra bars
+		num := (note-1)/2 - 2
+		if num > 1 {
+			painter.Paint(Translated(P(offset.X+12, bubbleSpaceY*6+4), Text{Text: strconv.Itoa(num)}))
 		}
 	}
 }
