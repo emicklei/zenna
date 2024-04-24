@@ -72,6 +72,7 @@ func main() {
 		Center: cright,
 		Radius: 3,
 	}))
+	canvas.Gend()
 
 	canvas.End()
 }
