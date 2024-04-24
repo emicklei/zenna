@@ -4,7 +4,7 @@ import (
 	_ "math"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	svg "github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
 )
@@ -65,14 +65,14 @@ func useTrapezia(painter Painter) {
 
 	painter.Style("stroke-width:0.01px;stroke:blue;fill:blue")
 
-	g0 := new(Composite)
+	g0 := new(Group)
 	g0.Add(Translate{P(2*dy/3, 0),
 		Rotate{90, t1}})
 	g0.Add(Translate{
 		P(-2*dx-(dy/3), 0.5*t1.Length),
 		Rotate{30, t1}})
 
-	g1 := new(Composite)
+	g1 := new(Group)
 	g1.Add(g0)
 	g1.Add(Rotate{120, g0})
 	g1.Add(Rotate{240, g0})

@@ -19,7 +19,7 @@ func (s Scale) Accept(visitor Visitor) {
 }
 
 type Rotate struct {
-	Angle float64 // degrees
+	Angle float64 // degrees rotating counter-clock
 	Shape Geometric
 }
 

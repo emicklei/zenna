@@ -4,18 +4,20 @@ import (
 	_ "math"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	svg "github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
 )
 
 // http://colorschemedesigner.com/
 
+// watcher -cmd="sh logo.sh" -list logo.go
+
 func main() {
 	canvas := svg.New(os.Stdout)
-	canvas.Start(600, 600)
+	canvas.Start(1200, 1200)
 	canvas.Title("Trapezium")
-	canvas.Translate(300, 300)
+	canvas.Translate(300, 700)
 	canvas.Scale(100)
 
 	painter := NewSVGPainter("", canvas)
@@ -29,45 +31,39 @@ func main() {
 	painter.Paint(Style{"stroke-width:0.01px;stroke:red",
 		Raster{PointZero, 6, 6, 0, 0}})
 
-	g0 := new(Composite)
+	g0 := new(Group)
 	// green
 	g0.Add(Style{"fill:#9FEE00;stroke:#9FEE00;stroke-width:0.01px", t1})
 
-	g0.Add(Translate{t1.Delta().Multiply(2), Rotate{-120, t1}})
-	/**
+	// orange
+	t3 := Style{"fill:#FFAA00;stroke:#FFAA00;stroke-width:0.01px", Trapezium{60, 1}}
+	g0.Add(Translate{Point{0.75, -HCos30 + t1.Delta().Y*2}, Rotate{120, t3}})
+
+	//blue
 	g0.Add(
 		Style{"fill:#1240AB;stroke:#1240AB;stroke-width:0.01px",
-			Translate{t1.Delta().Scaled(0, 0),
-				Rotate{120, t1}}})
-	**/
-
-	//t3 := Style{"fill:#FFAA00;stroke:#FFAA00;stroke-width:0.01px", Trapezium{60, 1}}
-	//g0.Add(Translate{Point{0.75, -HCos30}, Rotate{120, t3}})
+			Translate{P(0, t1.Delta().Y*2),
+				Rotate{-120, t1}}})
 
 	painter.Paint(g0)
 
-	g1 := new(Composite)
+	g1 := new(Group)
 	g1.Add(g0)
 
 	g1.Add(Translate{Point{0.5, -Cos30}, Rotate{60, g0}})
-	g1.Add(Translate{Point{0.5, -Cos30}, Rotate{120, g0}})
+	g1.Add(Translate{Point{1.5, -Cos30}, Rotate{120, g0}})
 	g1.Add(Translate{Point{2, 0}, Rotate{180, g0}})
 	g1.Add(Translate{Point{1.5, Cos30}, Rotate{240, g0}})
 	g1.Add(Translate{Point{0.5, Cos30}, Rotate{300, g0}})
 
-	//g1.Accept(painter)
+	g1.Accept(painter)
 
-	/**
-		TranslateBy{g1, Point{Cos30 + 1.5, Cos30 * 3 / 2}}.Accept(painter)
+	Translate{Point{Cos30 + 1.5, Cos30 * 3 / 2}, g1}.Accept(painter)
+	Translate{Point{-Cos30 - 1.5, Cos30 * 3 / 2}, g1}.Accept(painter)
+	Translate{Point{Cos30 + 1.5, Cos30 * 9 / 1.95}, g1}.Accept(painter)
+	Translate{Point{-Cos30 - 1.5, Cos30 * 9 / 1.95}, g1}.Accept(painter)
+	Translate{Point{0, Cos30 * 12 / 1.95}, g1}.Accept(painter)
 
-		TranslateBy{g1, Point{-Cos30 - 1.5, Cos30 * 3 / 2}}.Accept(painter)
-
-		TranslateBy{g1, Point{Cos30 + 1.5, Cos30 * 9 / 1.95}}.Accept(painter)
-
-		TranslateBy{g1, Point{-Cos30 - 1.5, Cos30 * 9 / 1.95}}.Accept(painter)
-
-		TranslateBy{g1, Point{0, Cos30 * 12 / 1.95}}.Accept(painter)
-	**/
 	canvas.Gend()
 	canvas.Gend()
 	canvas.End()

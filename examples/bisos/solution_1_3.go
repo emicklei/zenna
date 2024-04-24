@@ -4,8 +4,8 @@ import (
 	. "github.com/emicklei/zenna/xy"
 )
 
-func bisos_1_3() *Composite {
-	group := new(Composite)
+func bisos_1_3() *Group {
+	group := new(Group)
 
 	four := NewBisos(4)
 	(&four).Mirrored(AxisY(0))

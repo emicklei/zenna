@@ -4,8 +4,8 @@ import (
 	. "github.com/emicklei/zenna/xy"
 )
 
-func bisos_cover() *Composite {
-	group := new(Composite)
+func bisos_cover() *Group {
+	group := new(Group)
 
 	one := NewBisos(1)
 	group.Add(Translate{BisosDelta.Scaled(-5, 1), one})

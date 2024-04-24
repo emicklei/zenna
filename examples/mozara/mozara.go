@@ -4,7 +4,7 @@ import (
 	"math"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	svg "github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
 )
@@ -23,7 +23,7 @@ func main() {
 	//st := "stroke-width:1px;fill:#4b5cD7;stroke:#ffb800"
 
 	moz := Mozara{40, 20}
-	g := new(Composite)
+	g := new(Group)
 	m1 := Style{st, Polygon{Mirrored(moz.Mozara_1(), AxisX(0.0))}}
 	addToGroup(m1, g)
 
@@ -62,7 +62,7 @@ func main() {
 	canvas.End()
 }
 
-func addToGroup(s Geometric, g *Composite) {
+func addToGroup(s Geometric, g *Group) {
 	g.Add(s)
 	g.Add(Rotate{90, s})
 	g.Add(Rotate{180, s})

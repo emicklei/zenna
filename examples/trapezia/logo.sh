@@ -1,0 +1,1 @@
+go run logo.go > logo.svg || echo "fail"

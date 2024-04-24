@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/ajstarks/svgo"
+	svg "github.com/ajstarks/svgo"
 	. "github.com/emicklei/zenna/svgf"
 	. "github.com/emicklei/zenna/xy"
 )
